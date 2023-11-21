@@ -1,4 +1,4 @@
-<div>Edit password</div>
+<div><h1>Change password</h1></div>
 <%= form_with model: current_user, url: password_path do |form| %>
   <% if form.object.errors.any? %>
     <% form.object.errors.full_messages.each do |message| %>
@@ -6,21 +6,24 @@
     <% end %>
   <% end %>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :password_challenge , "Current Password"%>
-    <%= form.password_field :password_challenge %>
+    <%= form.password_field :password_challenge, class: "form-control", placeholder: "Password" %>
+    <div class="error"><%= current_user.errors.full_messages_for(:password_challenge).first %></div>
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :password, "New Password" %>
-    <%= form.password_field :password %>
+    <%= form.password_field :password, class: "form-control", placeholder: "Password" %>
+    <div class="error"><%= current_user.errors.full_messages_for(:password).first %></div>
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
+    <%= form.password_field :password_confirmation, class: "form-control", placeholder: "Password" %>
+    <div class="error"><%= current_user.errors.full_messages_for(:password_confirmation).first %></div>
   </div>
 
-  <%= form.submit "Update password" %>
+  <%= form.submit "Update password", class: "btn btn-primary" %>
 
 <% end %>
