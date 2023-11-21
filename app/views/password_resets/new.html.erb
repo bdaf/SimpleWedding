@@ -1,0 +1,13 @@
+<div>Reset your password</div>
+<%= form_with model: @user, url: password_reset_path do |form| %>
+
+     <div>
+        <%= form.label :email , "Your email"%>
+        <%= form.email_field :email %>
+    </div>
+
+    <div>
+        <%= form.submit "Reset password" %>
+    </div>
+
+<% end %>
