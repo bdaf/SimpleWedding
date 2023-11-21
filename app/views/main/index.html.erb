@@ -5,3 +5,12 @@
 <div class="d-flex align-items-center justify-content-center">
     <h2>Create your own wedding in one place, let it to be simple!</h2>
 </div>
+<% if user_signed_in? %>
+<%= current_user.celebration_date %>
+    <% seconds_until_target_time = current_user.celebration_date.to_i - Time.now.to_i %>
+    <%= content_tag(:h1, "", data: {
+    controller: "countdown-to-celebration",
+    countdown_to_celebration_target: "countdown",
+    seconds_until_end_value: seconds_until_target_time
+    }) %>
+<% end %>
