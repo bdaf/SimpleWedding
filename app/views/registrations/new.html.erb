@@ -1,51 +1,55 @@
-<div>Sign Up</div>
+<div><h1>Sign Up</h1></div>
+
 <%= form_with model: @user, url: registration_path do |form| %>
-  <% if form.object.errors.any? %>
-    <% form.object.errors.full_messages.each do |message| %>
-      <div> <%= message %></div>
-    <% end %>
-  <% end %>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Aleksandra" %>
+    <div class="error"><%= @user.errors.full_messages_for(:name).first %></div>
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :surname %>
-    <%= form.text_field :surname %>
+    <%= form.text_field :surname, class: "form-control", placeholder: "Piękna" %>
+    <div class="error"><%= @user.errors.full_messages_for(:surname).first %></div>
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :email %>
-    <%= form.email_field :email %>
+    <%= form.email_field :email, class: "form-control", placeholder: "piękna_ola@gmail.com" %>
+    <div class="error"><%= @user.errors.full_messages_for(:email).first %></div>
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :password %>
-    <%= form.password_field :password %>
+    <%= form.password_field :password , class: "form-control", placeholder: "password" %>
+    <div class="error"><%= @user.errors.full_messages_for(:password).first %></div>
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
+    <%= form.password_field :password_confirmation, class: "form-control", placeholder: "password" %>
+    <div class="error"><%= @user.errors.full_messages_for(:password_confirmation).first %></div>
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :city %>
-    <%= form.text_field :city %>
+    <%= form.text_field :city, class: "form-control", placeholder: "Białystok" %>
+    <div class="error"><%= @user.errors.full_messages_for(:city).first %></div>
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :phone_number %>
-    <%= form.telephone_field :phone_number %>
+    <%= form.telephone_field :phone_number, class: "form-control", placeholder: "997" %>
+    <div class="error"><%= @user.errors.full_messages_for(:phone_number).first %></div>
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :celebration_date %>
-    <%= form.datetime_local_field :celebration_date %>
+    <%= form.datetime_local_field :celebration_date, class: "form-control" %>
+    <div class="error"><%= @user.errors.full_messages_for(:celebration_date).first %></div>
   </div>
 
-  <%= form.submit "Create account" %>
+  <%= form.submit "Create account", class: "btn btn-primary" %>
 
 <% end %>

@@ -9,6 +9,7 @@ class RegistrationsController < ApplicationController
       login @user
       redirect_to root_path
     else
+      flash[:alert] = "Something went wrong, see hints below!"
       render :new, status: :unprocessable_entity
     end
   end
