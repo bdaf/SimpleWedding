@@ -1,14 +1,14 @@
-<div>Log in</div>
+<div ><h1>Log in</h1></div>
 <%= form_with model: @user, url: session_path do |form| %>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :email %>
-    <%= form.email_field :email %>
+    <%= form.email_field :email, class: "form-control", placeholder: "AleksandraAleAleAleŁadna@dama.pl" %>
   </div>
 
-  <div>
+  <div class="mb-3">
     <%= form.label :password %>
-    <%= form.password_field :password %>
+    <%= form.password_field :password, class: "form-control", placeholder: "password" %>
   </div>
 
   <%= form.submit "Log in" %>
